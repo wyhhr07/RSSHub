@@ -1839,8 +1839,10 @@
       "/tribe/set/:id": {
         "path": "/tribe/set/:id",
         "categories": [
-          "picture"
+          "picture",
+          "popular"
         ],
+        "view": 2,
         "example": "/500px/tribe/set/f5de0b8aa6d54ec486f5e79616418001",
         "parameters": {
           "id": "部落 ID"
@@ -6633,12 +6635,27 @@
       "/:user/:type?": {
         "path": "/:user/:type?",
         "categories": [
-          "design"
+          "design",
+          "popular"
         ],
+        "view": 2,
         "example": "/behance/mishapetrick",
         "parameters": {
           "user": "username",
-          "type": "type, `projects` or `appreciated`, `projects` by default"
+          "type": {
+            "description": "type",
+            "options": [
+              {
+                "value": "projects",
+                "label": "projects"
+              },
+              {
+                "value": "appreciated",
+                "label": "appreciated"
+              }
+            ],
+            "default": "projects"
+          }
         },
         "features": {
           "requireConfig": false,
@@ -7013,8 +7030,10 @@
         },
         "example": "/bilibili/bangumi/media/9192",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 3,
         "maintainers": [
           "DIYgod"
         ],
@@ -7848,8 +7867,10 @@
       "/readlist/:listid": {
         "path": "/readlist/:listid",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 0,
         "example": "/bilibili/readlist/25611",
         "parameters": {
           "listid": "文集 id, 可在专栏文集 URL 中找到"
@@ -12567,8 +12588,10 @@
       "/:userid": {
         "path": "/:userid",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 4,
         "example": "/changba/skp6hhF59n48R-UpqO3izw",
         "parameters": {
           "userid": "用户ID, 可在对应分享页面的 URL 中找到"
@@ -12589,7 +12612,9 @@
           }
         ],
         "name": "用户",
-        "maintainers": [],
+        "maintainers": [
+          "pseudoyu"
+        ],
         "location": "user.ts"
       }
     },
@@ -19873,12 +19898,29 @@
       "/blog/:cate?/:language?": {
         "path": "/blog/:cate?/:language?",
         "categories": [
-          "design"
+          "blog"
         ],
         "example": "/eagle/blog/en",
         "parameters": {
           "cate": "Category, get by URL, `all` by default",
-          "language": "Language, `cn`, `tw`, `en`, `en` by default"
+          "language": {
+            "description": "Language",
+            "options": [
+              {
+                "value": "cn",
+                "label": "cn"
+              },
+              {
+                "value": "tw",
+                "label": "tw"
+              },
+              {
+                "value": "en",
+                "label": "en"
+              }
+            ],
+            "default": "en"
+          }
         },
         "features": {
           "requireConfig": false,
@@ -23575,11 +23617,93 @@
       "/gnn/:category?": {
         "path": "/gnn/:category?",
         "categories": [
-          "anime"
+          "anime",
+          "popular"
         ],
+        "view": 0,
         "example": "/gamer/gnn/1",
         "parameters": {
-          "category": "版块"
+          "category": {
+            "description": "版塊",
+            "options": [
+              {
+                "value": "1",
+                "label": "PC"
+              },
+              {
+                "value": "3",
+                "label": "TV 掌機"
+              },
+              {
+                "value": "4",
+                "label": "手機遊戲"
+              },
+              {
+                "value": "5",
+                "label": "動漫畫"
+              },
+              {
+                "value": "9",
+                "label": "主題報導"
+              },
+              {
+                "value": "11",
+                "label": "活動展覽"
+              },
+              {
+                "value": "13",
+                "label": "電競"
+              },
+              {
+                "value": "ns",
+                "label": "Switch"
+              },
+              {
+                "value": "ps5",
+                "label": "PS5"
+              },
+              {
+                "value": "ps4",
+                "label": "PS4"
+              },
+              {
+                "value": "xbone",
+                "label": "XboxOne"
+              },
+              {
+                "value": "xbsx",
+                "label": "XboxSX"
+              },
+              {
+                "value": "pc",
+                "label": "PC 單機"
+              },
+              {
+                "value": "olg",
+                "label": "PC 線上"
+              },
+              {
+                "value": "ios",
+                "label": "iOS"
+              },
+              {
+                "value": "android",
+                "label": "Android"
+              },
+              {
+                "value": "web",
+                "label": "Web"
+              },
+              {
+                "value": "comic",
+                "label": "漫畫"
+              },
+              {
+                "value": "anime",
+                "label": "動畫"
+              }
+            ]
+          }
         },
         "features": {
           "requireConfig": false,
@@ -23592,19 +23716,22 @@
         "name": "GNN 新聞",
         "maintainers": [
           "Arracc",
-          "ladeng07"
+          "ladeng07",
+          "pseudoyu"
         ],
-        "description": "| 首頁 | PC | TV 掌機 | 手機遊戲 | 動漫畫 | 主題報導 | 活動展覽 | 電競 |\n  | ---- | -- | ------- | -------- | ------ | -------- | -------- | ---- |\n  | 缺省 | 1  | 3       | 4        | 5      | 9        | 11       | 13   |\n\n  | Switch | PS5 | PS4 | XboxOne | XboxSX | PC 單機 | PC 線上 | iOS | Android | Web | 漫畫  | 動畫  |\n  | ------ | --- | --- | ------- | ------ | ------- | ------- | --- | ------- | --- | ----- | ----- |\n  | ns     | ps5 | ps4 | xbone   | xbsx   | pc      | olg     | ios | android | web | comic | anime |",
+        "description": "缺省為首頁",
         "location": "gnn-index.ts"
       },
       "/hot/:bsn": {
         "path": "/hot/:bsn",
         "categories": [
-          "anime"
+          "anime",
+          "popular"
         ],
+        "view": 0,
         "example": "/gamer/hot/47157",
         "parameters": {
-          "bsn": "板块 id，在 URL 可以找到"
+          "bsn": "板塊 id，在 URL 可以找到"
         },
         "features": {
           "requireConfig": false,
@@ -23624,8 +23751,10 @@
       "/ani/anime/:sn": {
         "path": "/ani/anime/:sn",
         "categories": [
-          "anime"
+          "anime",
+          "popular"
         ],
+        "view": 3,
         "example": "/gamer/ani/anime/36868",
         "parameters": {
           "sn": "動畫 sn，在 URL 可以找到"
@@ -23638,15 +23767,27 @@
           "supportPodcast": false,
           "supportScihub": false
         },
+        "radar": [
+          {
+            "source": [
+              "ani.gamer.com.tw/"
+            ],
+            "target": "/anime/:sn"
+          }
+        ],
         "name": "動畫瘋 - 動畫",
-        "maintainers": [],
+        "maintainers": [
+          "pseudoyu"
+        ],
         "location": "ani/anime.ts"
       },
       "/ani/new_anime": {
         "path": "/ani/new_anime",
         "categories": [
-          "anime"
+          "anime",
+          "popular"
         ],
+        "view": 3,
         "example": "/gamer/ani/new_anime",
         "parameters": {},
         "features": {
@@ -23666,7 +23807,9 @@
           }
         ],
         "name": "動畫瘋 - 最後更新",
-        "maintainers": [],
+        "maintainers": [
+          "pseudoyu"
+        ],
         "url": "ani.gamer.com.tw/",
         "location": "ani/new-anime.ts"
       }
@@ -30517,13 +30660,21 @@
       "/:section?/:type?/:user?": {
         "path": "/:section?/:type?/:user?",
         "categories": [
-          "programming"
+          "programming",
+          "popular"
         ],
+        "view": 0,
         "example": "/hackernews/threads/comments_list/dang",
         "parameters": {
-          "section": "内容分区，见上表，默认为 `index`",
-          "type": "链接类型，见上表，默认为 `sources`",
-          "user": "设定用户，只在 `threads` 和 `submitted` 分区有效"
+          "section": {
+            "description": "Content section, default to `index`"
+          },
+          "type": {
+            "description": "Link type, default to `sources`"
+          },
+          "user": {
+            "description": "Set user, only valid in `threads` and `submitted` sections"
+          }
         },
         "features": {
           "requireConfig": false,
@@ -30541,12 +30692,12 @@
             ]
           }
         ],
-        "name": "用户",
+        "name": "User",
         "maintainers": [
           "nczitzk",
           "xie-dongping"
         ],
-        "description": "订阅特定用户的内容",
+        "description": "Subscribe to the content of a specific user",
         "location": "index.ts"
       }
     },
@@ -37132,12 +37283,22 @@
       "/topic/:id/:showUid?": {
         "path": "/topic/:id/:showUid?",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 1,
         "example": "/jike/topic/556688fae4b00c57d9dd46ee",
         "parameters": {
           "id": "圈子 id, 可在即刻 web 端圈子页或 APP 分享出来的圈子页 URL 中找到",
-          "showUid": "是否在内容中显示用户信息，设置为 1 则开启"
+          "showUid": {
+            "description": "是否在内容中显示用户信息，设置为 1 则开启",
+            "options": [
+              {
+                "value": "1",
+                "label": "显示"
+              }
+            ]
+          }
         },
         "features": {
           "requireConfig": false,
@@ -37165,8 +37326,10 @@
       "/user/:id": {
         "path": "/user/:id",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 1,
         "example": "/jike/user/3EE02BC9-C5B3-4209-8750-4ED1EE0F67BB",
         "parameters": {
           "id": "用户 id, 可在即刻分享出来的单条动态页点击用户头像进入个人主页，然后在个人主页的 URL 中找到，或者在单条动态页使用 RSSHub Radar 插件"
@@ -39683,12 +39846,94 @@
       "/:community/:sort?": {
         "path": "/:community/:sort?",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
         "example": "/lemmy/technology@lemmy.world/Hot",
         "parameters": {
           "community": "Lemmmy community, for example technology@lemmy.world",
-          "sort": "Sort by, defaut to Active"
+          "sort": {
+            "description": "Sort by",
+            "options": [
+              {
+                "value": "Active",
+                "label": "Active"
+              },
+              {
+                "value": "Hot",
+                "label": "Hot"
+              },
+              {
+                "value": "New",
+                "label": "New"
+              },
+              {
+                "value": "Old",
+                "label": "Old"
+              },
+              {
+                "value": "TopDay",
+                "label": "TopDay"
+              },
+              {
+                "value": "TopWeek",
+                "label": "TopWeek"
+              },
+              {
+                "value": "TopMonth",
+                "label": "TopMonth"
+              },
+              {
+                "value": "TopYear",
+                "label": "TopYear"
+              },
+              {
+                "value": "TopAll",
+                "label": "TopAll"
+              },
+              {
+                "value": "MostComments",
+                "label": "MostComments"
+              },
+              {
+                "value": "NewComments",
+                "label": "NewComments"
+              },
+              {
+                "value": "TopHour",
+                "label": "TopHour"
+              },
+              {
+                "value": "TopSixHour",
+                "label": "TopSixHour"
+              },
+              {
+                "value": "TopTwelveHour",
+                "label": "TopTwelveHour"
+              },
+              {
+                "value": "TopThreeMonths",
+                "label": "TopThreeMonths"
+              },
+              {
+                "value": "TopSixMonths",
+                "label": "TopSixMonths"
+              },
+              {
+                "value": "TopNineMonths",
+                "label": "TopNineMonths"
+              },
+              {
+                "value": "Controversial",
+                "label": "Controversial"
+              },
+              {
+                "value": "Scaled",
+                "label": "Scaled"
+              }
+            ],
+            "default": "Active"
+          }
         },
         "features": {
           "requireConfig": [
@@ -39705,12 +39950,14 @@
         },
         "name": "Community",
         "maintainers": [
-          "wb14123"
+          "wb14123",
+          "pseudoyu"
         ],
         "location": "index.ts"
       }
     },
-    "name": "Lemmy"
+    "name": "Lemmy",
+    "url": "https://join-lemmy.org/"
   },
   "lfsyd": {
     "routes": {
@@ -41696,9 +41943,42 @@
     "routes": {
       "/account_id/:site/:account_id/statuses/:only_media?": {
         "path": "/account_id/:site/:account_id/statuses/:only_media?",
-        "name": "Unknown",
+        "categories": [
+          "social-media",
+          "popular"
+        ],
+        "view": 1,
+        "example": "/mastodon/account_id/mas.to/109300507275095341/statuses/false",
+        "parameters": {
+          "site": "instance address, only domain, no `http://` or `https://` protocol header",
+          "account_id": "account ID, you can get it from `https://INSTANCE/api/v1/accounts/lookup?acct=USERNAME` api",
+          "only_media": {
+            "description": "whether only display media content, default to false, any value to true",
+            "options": [
+              {
+                "value": "true",
+                "label": "true"
+              },
+              {
+                "value": "false",
+                "label": "false"
+              }
+            ],
+            "default": "false"
+          }
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "User timeline (by account ID)",
         "maintainers": [
-          "notofoe"
+          "notofoe",
+          "pseudoyu"
         ],
         "location": "account-id.ts"
       },
@@ -45158,8 +45438,10 @@
       "/notes/featured/:site": {
         "path": "/notes/featured/:site",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 1,
         "example": "/misskey/notes/featured/misskey.io",
         "parameters": {
           "site": "instance address, domain only, without `http://` or `https://` protocol header"
@@ -45181,8 +45463,10 @@
       "/users/notes/:username": {
         "path": "/users/notes/:username",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 1,
         "example": "/misskey/users/notes/support@misskey.io",
         "parameters": {
           "username": "misskey username format, like support@misskey.io"
@@ -46231,8 +46515,10 @@
       "/dailyphoto": {
         "path": "/dailyphoto",
         "categories": [
-          "picture"
+          "picture",
+          "popular"
         ],
+        "view": 2,
         "example": "/natgeo/dailyphoto",
         "parameters": {},
         "features": {
@@ -46251,20 +46537,41 @@
             ]
           }
         ],
-        "name": "每日一图",
+        "name": "Daily Photo",
         "maintainers": [
           "LogicJake",
           "OrangeEd1t",
-          "TonyRL"
+          "TonyRL",
+          "pseudoyu"
         ],
         "url": "nationalgeographic.com/photo-of-the-day/*",
         "location": "dailyphoto.ts"
       },
       "/dailyselection": {
         "path": "/dailyselection",
-        "name": "Unknown",
+        "name": "Daily Selection",
+        "categories": [
+          "picture"
+        ],
+        "view": 2,
+        "example": "/natgeo/dailyselection",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false
+        },
+        "radar": [
+          {
+            "source": [
+              "nationalgeographic.com/"
+            ]
+          }
+        ],
         "maintainers": [
-          "OrangeEd1t"
+          "OrangeEd1t",
+          "pseudoyu"
         ],
         "location": "dailyselection.ts"
       },
@@ -50891,6 +51198,43 @@
     "name": "The New York Times 纽约时报",
     "url": "nytimes.com"
   },
+  "obsidian": {
+    "routes": {
+      "/publish/:id": {
+        "path": "/publish/:id",
+        "categories": [
+          "blog"
+        ],
+        "example": "/obsidian/publish/marshallontheroad",
+        "parameters": {
+          "id": "网站 id，由Publish持有者自定义"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publish.obsidian.md/"
+            ]
+          }
+        ],
+        "name": "Publish",
+        "maintainers": [
+          "Xy2002"
+        ],
+        "url": "publish.obsidian.md/",
+        "location": "publish.ts"
+      }
+    },
+    "name": "Obsidian",
+    "url": "obsidian.md"
+  },
   "oceanengine": {
     "routes": {
       "/index/:keyword/:channel?": {
@@ -54683,7 +55027,6 @@
           },
           "sort": {
             "description": "sorting method, leave empty for `Best`",
-            "default": "mr",
             "options": [
               {
                 "label": "Most Recent",
@@ -55699,7 +56042,7 @@
       }
     },
     "name": "起点",
-    "url": "book.qidian.com"
+    "url": "qidian.com"
   },
   "qingting": {
     "routes": {
@@ -71960,8 +72303,10 @@
       "/category/:category/:staffpicks?": {
         "path": "/category/:category/:staffpicks?",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 3,
         "example": "/vimeo/category/documentary/staffpicks",
         "parameters": {
           "category": "Category name can get from url like `documentary` in [https://vimeo.com/categories/documentary/videos](https://vimeo.com/categories/documentary/videos) ",
@@ -72016,8 +72361,10 @@
       "/user/:username/:cat?": {
         "path": "/user/:username/:cat?",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 3,
         "example": "/vimeo/user/filmsupply/picks",
         "parameters": {
           "username": "In this example [https://vimeo.com/filmsupply](https://vimeo.com/filmsupply)  is `filmsupply`",
@@ -77185,8 +77532,10 @@
       "/playlist/:id/:embed?": {
         "path": "/playlist/:id/:embed?",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
+        "view": 3,
         "example": "/youtube/playlist/PLqQ1RwlxOgeLTJ1f3fNMSwhjVgaWKo_9Z",
         "parameters": {
           "id": "YouTube playlist id",
